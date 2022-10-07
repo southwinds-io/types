@@ -17,6 +17,6 @@ type Release struct {
 	Time         time.Time `json:"time"`
 }
 
-func (r *Release) Validate() error {
+func (r Release) Validate() error {
 	return nil
 }
