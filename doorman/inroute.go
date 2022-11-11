@@ -46,7 +46,7 @@ func (r InRoute) GetName() string {
 	return r.Name
 }
 
-func (r InRoute) Valid() error {
+func (r InRoute) Validate() error {
 	if len(r.ServiceHost) == 0 {
 		return fmt.Errorf("inbound route %s service_host is mandatory", r.Name)
 	}

@@ -28,7 +28,7 @@ func (c Command) GetName() string {
 	return c.Name
 }
 
-func (c Command) Valid() error {
+func (c Command) Validate() error {
 	if len(c.Value) == 0 {
 		return fmt.Errorf("command must have a value")
 	}

@@ -52,6 +52,6 @@ func (t NotificationTemplate) GetName() string {
 	return t.Name
 }
 
-func (t NotificationTemplate) Valid() error {
+func (t NotificationTemplate) Validate() error {
 	return nil
 }

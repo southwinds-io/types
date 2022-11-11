@@ -33,7 +33,7 @@ func (r PipelineConf) GetName() string {
 	return r.Name
 }
 
-func (r PipelineConf) Valid() error {
+func (r PipelineConf) Validate() error {
 	if len(r.InboundRoutes) == 0 {
 		return fmt.Errorf("pipeline %s must define an inbound route", r.Name)
 	}
@@ -65,12 +65,12 @@ type Pipeline struct {
 
 func (p Pipeline) Valid() error {
 	for _, route := range p.InboundRoutes {
-		if err := route.Valid(); err != nil {
+		if err := route.Validate(); err != nil {
 			return err
 		}
 	}
 	for _, route := range p.OutboundRoutes {
-		if err := route.Valid(); err != nil {
+		if err := route.Validate(); err != nil {
 			return err
 		}
 	}

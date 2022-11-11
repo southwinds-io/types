@@ -30,7 +30,7 @@ func (r OutRoute) GetName() string {
 	return r.Name
 }
 
-func (r OutRoute) Valid() error {
+func (r OutRoute) Validate() error {
 	if r.PackageRegistry != nil {
 		if len(r.PackageRegistry.Domain) == 0 {
 			return fmt.Errorf("inbound route %s requires package registry Domain", r.Name)

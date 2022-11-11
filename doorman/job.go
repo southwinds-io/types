@@ -26,3 +26,7 @@ type Job struct {
 func (j *Job) GetName() string {
 	return j.Number
 }
+
+func (j *Job) Validate() error {
+	return nil
+}
