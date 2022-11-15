@@ -8,9 +8,10 @@
 package doorman
 
 const (
-	PipelineType      = "DOORMAN-PIPELINE"
-	InboundRouteType  = "DOORMAN-INBOUND-ROUTE"
-	OutboundRouteType = "DOORMAN-OUTBOUND-ROUTE"
-	NotificationType  = "DOORMAN-NOTIFICATION"
-	CommandType       = "DOORMAN-COMMAND"
+	PipelineType             = "DOORMAN-PIPELINE"
+	InboundRouteType         = "DOORMAN-INBOUND-ROUTE"
+	OutboundRouteType        = "DOORMAN-OUTBOUND-ROUTE"
+	NotificationType         = "DOORMAN-NOTIFICATION"
+	NotificationTemplateType = "DOORMAN-NOTIFICATION-TEMPLATE"
+	CommandType              = "DOORMAN-COMMAND"
 )

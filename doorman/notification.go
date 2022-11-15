@@ -35,7 +35,7 @@ func (n Notification) GetName() string {
 	return n.Name
 }
 
-func (n Notification) Valid() error {
+func (n Notification) Validate() error {
 	return nil
 }
 

@@ -28,18 +28,8 @@ type InRoute struct {
 	User string `bson:"user "json:"user" yaml:"user"`
 	// Pwd the password to authenticate against the remote ServiceHost
 	Pwd string `bson:"pwd" json:"pwd" yaml:"pwd"`
-	// PublicKey the PGP public key used to verify the author of the downloaded files
-	PublicKey string `bson:"public_key" json:"public_key" yaml:"public_key"`
-	// Verify a flag indicating whether author verification should be enabled
-	Verify bool `bson:"verify" json:"verify" yaml:"verify"`
-	// WebhookToken an authentication token to be passed by an event sender to be authenticated by the doorman's proxy webhook
-	// its value can be anything, but it is typically a base64 encoded global unique identifier
-	WebhookToken string `bson:"webhook_token" json:"webhook_token" yaml:"webhook_token" example:"JFkxnsn++02UilVkYFFC9w=="`
-	// WebhookWhitelist the list of IP addresses accepted by the webhook (whitelist)
-	WebhookWhitelist []string `bson:"webhook_whitelist" json:"webhook_whitelist" yaml:"webhook_whitelist"`
-	// Filter a regular expression to filter publication events and prevent doorman from being invoked
-	// if not defined, no filter is applied
-	Filter string `bson:"filter" json:"filter" yaml:"filter"`
+	// list of authorised publishers
+	Publishers []string `json:"publishers"`
 }
 
 func (r InRoute) GetName() string {
@@ -55,9 +45,6 @@ func (r InRoute) Validate() error {
 	}
 	if (len(r.User) > 0 && len(r.Pwd) == 0) || (len(r.User) == 0 && len(r.Pwd) > 0) {
 		return fmt.Errorf("inbound route %s requires both username and password to be provided, or none of them", r.Name)
-	}
-	if r.Verify && len(r.PublicKey) == 0 {
-		return fmt.Errorf("inbound route %s requires author verification so, it must specify the author's public key", r.Name)
 	}
 	return nil
 }

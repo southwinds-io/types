@@ -48,11 +48,11 @@ type Pipeline struct {
 	// Name the name uniquely identifying the pipeline
 	Name string `json:"name"`
 	// InboundRoutes  the name of the inbound route to use in the pipeline
-	InboundRoutes []InRoute `json:"in_route"`
+	InboundRoutes []*InRoute `json:"in_route"`
 	// OutboundRoutes  the name of the outbound route to use in the pipeline
-	OutboundRoutes []OutRoute `json:"out_route"`
+	OutboundRoutes []*OutRoute `json:"out_route"`
 	// Commands a list of the command names to be executed between inbound and outbound routes
-	Commands []Command `json:"commands"`
+	Commands []*Command `json:"commands"`
 	// SuccessNotification the key of the notification sent in case of success
 	SuccessNotification *PipeNotification `bson:"success_notification" json:"success_notification" yaml:"success_notification"`
 	// CmdFailedNotification the key of the notification sent in case of command failures

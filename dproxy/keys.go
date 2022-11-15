@@ -18,13 +18,13 @@ const (
 )
 
 var (
-	WebHookInfoProto = WebhookInfo{
+	WebHookInfoProto = &WebhookInfo{
 		WebhookToken: "dwfcj3485j353",
 		ReferrerURL:  "referrer.com",
 		IpSafeList:   []string{"127.0.0.1"},
 		Filter:       "",
 	}
-	ReleaseProto = Release{
+	ReleaseProto = &Release{
 		Origin:       "origin.com",
 		DeploymentId: "1234",
 		BucketName:   "bucket",
