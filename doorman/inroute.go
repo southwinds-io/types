@@ -29,7 +29,9 @@ type InRoute struct {
 	// Pwd the password to authenticate against the remote ServiceHost
 	Pwd string `bson:"pwd" json:"pwd" yaml:"pwd"`
 	// list of authorised publishers
-	Publishers []string `json:"publishers"`
+	AllowedAuthors []string `json:"allowed_authors"`
+	// Sign whether to (re)sign the imported packages
+	Sign bool `json:"sign"`
 }
 
 func (r InRoute) GetName() string {

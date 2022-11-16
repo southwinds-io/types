@@ -92,6 +92,8 @@ type S3Store struct {
 	Pwd string `bson:"pwd" json:"pwd" yaml:"pwd"`
 
 	// ARN parts required to create a bucket notification
+	// WebhookEvent create a webhook notification on the target bucket
+	WebhookEvent bool `json:"webhook_event"`
 	// Partition
 	Partition string `bson:"partition,omitempty" json:"partition,omitempty" yaml:"partition,omitempty"`
 	// Service the service namespace that identifies the AWS product (e.g. minio for standard minio implementations)
